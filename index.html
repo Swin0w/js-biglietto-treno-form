@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Biglietto treno</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #black {
+        background-color: #000;
+        height: 100vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 20%;
+        font-size: 15pt;
+        color: yellow;
+      }
+      #result {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="black">
+      <p id="paragraph">Il programma dovrà chiedere all'utente il
+      numero di chilometri che vuole
+      percorrere e l'et&eacute; del passeggero.
+      Sulla base di queste informazioni dovrà
+      calcolare il prezzo totale del viaggio.
+      Il prezzo del biglietto &eacute; definito in base ai
+      km (0.21 € al km), ma va applicato uno
+      sconto del 20% per i minorenni e del
+      40% per gli over 65.</p>
+      <span id="result"></span>
+    </div>
+    <script type="text/javascript">
+
+      var age = prompt("Quanti anni hai?:");
+      var km = prompt("Quanti km vuoi percorrere?:");
+      var prezzo = 0.21;
+      var tot = km * prezzo;
+
+      if ((age >= 18) && (age < 65 )) {
+        console.log("Il prezzo del biglietto:", tot);
+        document.getElementById("result").innerHTML = "Il prezzo del biglietto è: " + tot;
+      } else if (age < 18) {
+        tot = tot - (tot * 0.2);
+        console.log("Il prezzo del biglietto:", tot);
+        document.getElementById("result").innerHTML = "Il prezzo del biglietto è: " + tot;
+      } else {
+        tot = tot - (tot * 0.4);
+        console.log("Il prezzo del biglietto:", tot);
+        document.getElementById("result").innerHTML = "Il prezzo del biglietto è: " + tot;
+      }
+
+    </script>
+  </body>
+</html>
